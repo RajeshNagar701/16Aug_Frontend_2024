@@ -4,10 +4,21 @@ The JavaScript print function window.print()
 prints the current web page when executed.
 -->
 
-<form>
- <input type = "button" value = "Redirect" onclick = "window.location='arrow.html'" /> <!--Redirect-->
- <input type = "button" value = "Print" onclick = "window.print()" /><!--print-->
-</form>   
 
+ <button type = "button" onclick = "redirect()" />Redirect </button>
+ <button type = "button" onclick = "page_print()" />Print Here </button>
+
+
+<script>
+	function redirect()
+	{
+		window.location='arrow.html'; // redirect 
+	}
+	
+	function page_print()
+	{
+		window.print(); // print page  
+	}
+</script>
 
 
