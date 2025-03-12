@@ -1,0 +1,77 @@
+<script>
+
+
+
+class abc{
+
+	constructor(x,y){
+		this.a=x;
+		this.b=y;
+	}
+	sum()
+	{
+		var sum;
+		sum=this.a+this.b;
+		document.write(sum + "<br>");
+	}
+	multi()
+	{
+		var multi;
+		multi=this.a*this.b;
+		document.write(multi + "<br>");
+	}
+	div()
+	{
+		var div;
+		div=this.a/this.b;
+		document.write(div + "<br>");
+	}
+
+}
+
+var obj=new abc(50,5);  // intance of class / object
+obj.sum();
+obj.multi();
+obj.div();
+
+
+
+
+
+
+/*
+class abc
+{	// javascript build in func which call automatic
+	constructor(a,b){  
+		this.a=a;
+		this.b=b;		
+	}
+	sum()
+	{
+		var sum;
+		sum=this.a+this.b;
+		document.write("<h1>" + sum + "</h1>");
+	}
+}
+class xyz extends abc{
+	constructor(a,b,c){  
+		super(a,b)
+		this.c=c;
+	}
+	multi()
+	{
+		var multi;
+		multi=this.a*this.b*this.c;
+		document.write("<h1>" + multi + "</h1>");
+	}
+}
+
+var obj=new xyz(5,8,10);
+obj.sum();
+obj.multi();
+
+
+*/
+</script>
+
+
