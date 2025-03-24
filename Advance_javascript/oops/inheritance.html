@@ -3,8 +3,7 @@
 class a{
 
 }
-
-class b extends a{ 
+class b extends a
 
 }
 obj=new b;
@@ -57,7 +56,7 @@ var obj=new xyz;
 obj.sum();
 obj.multi();
 */
-/*
+
 class abc
 {
 	constructor(a,b){  
@@ -73,7 +72,8 @@ class abc
 }
 class xyz extends abc
 {
-	constructor(a,b){
+	constructor(a,b,c){
+		this.c=c;
 		super(a,b)
 	}
 	multi()
@@ -83,11 +83,23 @@ class xyz extends abc
 		document.write(multi + "<br>");
 	}
 }
-var obj=new xyz(10,8);
+
+class pqr extends xyz
+{
+	constructor(a,b,c){
+		super(a,b,c)
+	}
+	multi()
+	{
+		var multi;
+		multi=this.a*this.b;
+		document.write(multi + "<br>");
+	}
+}
+var obj=new pqr(10,8,5);
 obj.sum();
 obj.multi();
 
-*/
 
 
 /*
