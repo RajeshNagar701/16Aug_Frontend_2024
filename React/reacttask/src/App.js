@@ -1,7 +1,6 @@
-import Footer from "./Footer";
-import Header from "./Header";
-import Home from "./Home";
-import Navbar from "./Navbar";
+import Main_Jsx from "./Jsx/Main_Jsx";
+import Main_layout from "./Layout/Main_layout";
+
 
 
 /*
@@ -19,14 +18,14 @@ rcc :  create class component with export
 rcep  : create class component with proptype
 
 */
-
 function App() {
   return (
-    <div>
-      <Header/>
-      <Navbar/>
-      <Home/>
-      <Footer/>
+    <div> 
+      {
+        //<Main_layout/>
+        //<Main_Jsx/>
+      }
+     
     </div>
   );
 }
