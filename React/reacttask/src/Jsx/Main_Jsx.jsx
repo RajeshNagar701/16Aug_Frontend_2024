@@ -35,13 +35,13 @@ function Main_Jsx() {
     )
 
 
-    var myStyle={color:"red",textDecoration:'uppercase',backgroundColor:'pink'}
+    var myStyle = { color: "red", textDecoration: 'uppercase', backgroundColor: 'pink' }
 
 
     const x = 50;
     let text = "Goodbye";
     if (x < 10) {
-    text = "Hello";
+        text = "Hello";
     }
 
 
@@ -54,7 +54,7 @@ function Main_Jsx() {
             {5 + 5}
             {myDiv}
             <hr />
-            { 
+            {
                 // single comment
                 /*
                      multiline 
@@ -64,16 +64,23 @@ function Main_Jsx() {
 
             <hr />
 
-            <h1 style={{color:"red",backgroundColor:'yellow'}}>Hi i am css</h1>
+            <h1 style={{ color: "red", backgroundColor: 'yellow' }}>Hi i am css</h1>
 
             <h1 style={myStyle}>Hi i am css with variable</h1>
 
             <h1 className='box'>Hi i am external css</h1>
             <h1 class='box'>Hi i am external css</h1>
-            
+
             <hr />
 
             <h1>{text}</h1>
+
+            <hr />
+
+            <div>
+                <h1 style={{ color: 'blue', backgroundColor: 'yellow' }}>HI GOOD MORNING</h1>
+                <div className="spinner-border" />
+            </div>
 
         </div>
     )
