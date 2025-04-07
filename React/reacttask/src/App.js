@@ -6,6 +6,7 @@ import Main_layout from "./Layout/Main_layout";
 import Module_css from "./Module_css/Module_css";
 import Class_props from "./props/Class/Class_props";
 import Func_props from "./props/Func/Func_props";
+import Sass_css from "./Sass_css/Sass_css";
 import Home from "./Website/pages/Home";
 
 
@@ -48,7 +49,8 @@ function App() {
 
         // css
         //<React_css/>
-        <Module_css/>
+        //<Module_css/>
+        <Sass_css/>
 
       }
      
