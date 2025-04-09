@@ -7,6 +7,8 @@ import Module_css from "./Module_css/Module_css";
 import Class_props from "./props/Class/Class_props";
 import Func_props from "./props/Func/Func_props";
 import Sass_css from "./Sass_css/Sass_css";
+import Main_classstate from "./state/Class/Main_classstate";
+import Main_funcstate from "./state/Func/Main_funcstate";
 import Home from "./Website/pages/Home";
 
 
@@ -50,7 +52,12 @@ function App() {
         // css
         //<React_css/>
         //<Module_css/>
-        <Sass_css/>
+        //<Sass_css/>
+
+        //state
+
+        <Main_funcstate/>
+        //<Main_classstate/>
 
       }
      
