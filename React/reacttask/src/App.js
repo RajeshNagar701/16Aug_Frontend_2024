@@ -10,6 +10,7 @@ import MUI from "./MUI/MUI";
 import Class_props from "./props/Class/Class_props";
 import Func_props from "./props/Func/Func_props";
 import React_bootstrap from "./React_bootstrap/React_bootstrap";
+import Route_app from "./Routing/Route_app";
 import Sass_css from "./Sass_css/Sass_css";
 import Main_classstate from "./state/Class/Main_classstate";
 import Main_funcstate from "./state/Func/Main_funcstate";
@@ -79,7 +80,10 @@ function App() {
         // LIFE CYCLE
 
         //<Life_class/>
-        <Life_func/>
+        //<Life_func/>
+
+        <Route_app/>
+
 
       }
      
