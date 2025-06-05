@@ -19,27 +19,23 @@ function Manage_categories() {
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Email</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th className='text-center'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
+                                <td>1</td>
+                                <td>Mens</td>
+                                <td>Mens.jpg</td>
+                                <td className='text-center'>
+                                   <button className='btn btn-primary m-1'>Edit</button> 
+                                   <button className='btn btn-danger m-1'>Delete</button> 
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Mary</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>July</td>
-                                <td>Dooley</td>
-                                <td>july@example.com</td>
-                            </tr>
+                           
                         </tbody>
                     </table>
 

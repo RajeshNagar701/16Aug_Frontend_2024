@@ -1,0 +1,74 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "name": "demo",
+            "email": "demo@gmail.com",
+            "password": "123456",
+            "mobile": 9722041171,
+            "status": "Unblock"
+        },
+        {
+            "id": 2,
+            "name": "demo",
+            "email": "demo@gmail.com",
+            "password": "123456",
+            "mobile": 9722041171,
+            "status": "Unblock"
+        }
+    ],
+    "contact": [
+        {
+            "id": 1,
+            "name": "jay",
+            "email": "jay@gmail.com",
+            "subect": "demo",
+            "msg": "hi"
+        },
+        {
+            "id": 2,
+            "name": "rajesh",
+            "email": "jay@gmail.com",
+            "subect": "demo",
+            "msg": "hi"
+        }
+    ],
+    "admin": [
+        {
+            "id": 1,
+            "name": "admin",
+            "email": "admin@gmail.com",
+            "password": "123456"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Men",
+            "image": "men.jpg"
+        },
+        {
+            "id": 2,
+            "name": "women",
+            "image": "women.jpg"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "cate_id": 1,
+            "name": "Men shirt",
+            "image": "men.jpg",
+            "price": 999,
+            "description": "Men shirt"
+        },
+        {
+            "id": 2,
+            "cate_id": 2,
+            "name": "Women shirt",
+            "image": "Women.jpg",
+            "price": 999,
+            "description": "Women shirt"
+        }
+    ]
+}
