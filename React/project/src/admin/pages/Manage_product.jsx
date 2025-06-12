@@ -3,18 +3,16 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios';
 function Manage_product() {
-    useEffect(()=>{
-        fetch();
-    },[]);
+        useEffect(()=>{
+    fetch();
+},[]);
 
-    var [product,setProduct]=useState([]);
-
-    var fetch=async()=>{
-        var objdata=await axios.get(`http://localhost:3000/products`);
-        console.log(objdata.data);
-        setProduct(objdata.data)
-    }
-
+const [mydata,setData]=useState([]);
+const fetch=async()=>{
+    const product=await axios.get(`http://localhost:3000/products`);
+    console.log(product.data);
+    setData(product.data);
+}
   return (
      <div>
             <Header />
@@ -34,20 +32,29 @@ function Manage_product() {
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
+                                <th>Price</th>
+                                <th>Description</th>
                                 <th className='text-center'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mens</td>
-                                <td>Mens.jpg</td>
-                                <td className='text-center'>
-                                   <button className='btn btn-primary m-1'>Edit</button> 
-                                   <button className='btn btn-danger m-1'>Delete</button> 
-                                </td>
-                            </tr>
-                           
+                           {
+                                mydata.map((value,index,arr)=>{
+                                    return(
+                                          <tr>
+                                            <td>{value.id}</td>
+                                            <td>{value.name}</td>
+                                            <td>{value.image}</td>
+                                            <td>{value.price}</td>
+                                            <td>{value.description}</td>
+                                            <td className='text-center'>
+                                            <button className='btn btn-primary m-1'>Edit</button> 
+                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                            </td>
+                                        </tr>   
+                                    )
+                                })
+                            }
                         </tbody>
                     </table>
 

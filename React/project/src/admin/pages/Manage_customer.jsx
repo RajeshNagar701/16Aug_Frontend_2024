@@ -1,7 +1,20 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
+import axios from 'axios';
+
 function Manage_customer() {
+    useEffect(()=>{
+    fetch();
+},[]);
+
+const [mydata,setData]=useState([]);
+const fetch=async()=>{
+    const user=await axios.get(`http://localhost:3000/user`);
+    console.log(user.data);
+    setData(user.data);
+}
+
   return (
      <div>
             <Header />
@@ -20,20 +33,32 @@ function Manage_customer() {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Image</th>
+                                <th>Email</th>
+                                <th>Pasword</th>
+                                <th>Mobile</th>
                                 <th className='text-center'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mens</td>
-                                <td>Mens.jpg</td>
-                                <td className='text-center'>
-                                   <button className='btn btn-primary m-1'>Edit</button> 
-                                   <button className='btn btn-danger m-1'>Delete</button> 
-                                </td>
-                            </tr>
+                           {
+                                mydata.map((value,index,arr)=>{
+                                    return(
+                                          <tr>
+                                            <td>{value.id}</td>
+                                            <td>{value.name}</td>
+                                            <td>{value.email}</td>
+                                            <td>{value.password}</td>
+                                            <td>{value.mobile}</td>
+                                            <td className='text-center'>
+                                            <button className='btn btn-primary m-1'>Edit</button> 
+                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                             <button className='btn btn-danger m-1'>{value.status}</button> 
+                                            </td>
+                                        </tr>   
+                                    )
+                                })
+                            }
+                           
                            
                         </tbody>
                     </table>

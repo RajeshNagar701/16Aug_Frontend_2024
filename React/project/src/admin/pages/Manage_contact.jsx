@@ -1,8 +1,22 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
+import axios from 'axios';
 
 function Manage_contact() {
+
+useEffect(()=>{
+    fetch();
+},[]);
+
+const [mydata,setData]=useState([]);
+
+const fetch=async()=>{
+    const contact=await axios.get(`http://localhost:3000/contact`);
+    console.log(contact.data);
+    setData(contact.data);
+}
+
   return (
      <div>
             <Header />
@@ -21,20 +35,31 @@ function Manage_contact() {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Image</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
                                 <th className='text-center'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mens</td>
-                                <td>Mens.jpg</td>
-                                <td className='text-center'>
-                                   <button className='btn btn-primary m-1'>Edit</button> 
-                                   <button className='btn btn-danger m-1'>Delete</button> 
-                                </td>
-                            </tr>
+                            {
+                                mydata.map((value,index,arr)=>{
+                                    return(
+                                          <tr>
+                                            <td>{value.id}</td>
+                                            <td>{value.name}</td>
+                                            <td>{value.email}</td>
+                                            <td>{value.subject}</td>
+                                            <td>{value.msg}</td>
+                                            <td className='text-center'>
+                                            <button className='btn btn-primary m-1'>Edit</button> 
+                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                            </td>
+                                        </tr>   
+                                    )
+                                })
+                            }
+                           
                            
                         </tbody>
                     </table>

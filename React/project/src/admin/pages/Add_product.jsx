@@ -23,7 +23,19 @@ function Add_product() {
                 <input type="text" className="form-control mt-1" id="name" name="name" placeholder="Name" />
               </div>
               <div className="form-group offset-md-2  col-md-8 mb-3">
-                <label htmlFor="inputname">Name</label>
+                <label htmlFor="inputname">Image</label>
+                <input type="text" className="form-control mt-1" id="name" name="name" placeholder="Name" />
+              </div>
+              <div className="form-group offset-md-2  col-md-8 mb-3">
+                <label htmlFor="inputname">Price</label>
+                <input type="text" className="form-control mt-1" id="name" name="name" placeholder="Name" />
+              </div>
+              <div className="form-group offset-md-2  col-md-8 mb-3">
+                <label htmlFor="inputname">Description</label>
+                <input type="text" className="form-control mt-1" id="name" name="name" placeholder="Name" />
+              </div>
+              <div className="form-group offset-md-2  col-md-8 mb-3">
+                <label htmlFor="inputname">Category</label>
                 <input type="text" className="form-control mt-1" id="name" name="name" placeholder="Name" />
               </div>
             </div>
