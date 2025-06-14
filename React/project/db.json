@@ -6,6 +6,7 @@
       "email": "demo@gmail.com",
       "password": "123456",
       "mobile": 9722041171,
+      "image": "https://www.rajvicosmeticclinic.com/img/testimonial-1.jpg",
       "status": "Unblock"
     },
     {
@@ -14,6 +15,16 @@
       "email": "demo@gmail.com",
       "password": "123456",
       "mobile": 9722041171,
+      "image": "https://www.rajvicosmeticclinic.com/img/testimonial-2.jpg",
+      "status": "Unblock"
+    },
+    {
+      "id": "1749897871142",
+      "name": "akash",
+      "email": "akash@gmail.com",
+      "password": "1234",
+      "mobile": "1234567891",
+      "image": "https://www.rajvicosmeticclinic.com/img/testimonial-3.jpg",
       "status": "Unblock"
     }
   ],

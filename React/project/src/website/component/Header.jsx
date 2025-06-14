@@ -1,7 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 function Header() {
+
+ const redirect=useNavigate();
+  const userlogout = () => {
+    localStorage.removeItem('uid');
+    localStorage.removeItem('uname');
+    localStorage.removeItem('uemail');
+    alert('Logout Success !')
+    redirect('/');
+    return false;
+  }
+
   return (
     <div>
       {/* Start Top Nav */}
@@ -13,12 +24,39 @@ function Header() {
               <a className="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
               <i className="fa fa-phone mx-2" />
               <a className="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+
+
+              {(
+                () => {
+                  if (localStorage.getItem('uid')) {
+                    return (
+                      <>
+                        <i className="fa fa-user mx-2" />
+                        <a className="navbar-sm-brand text-light text-decoration-none" href="#">hi ... {localStorage.getItem('uname')}</a>
+                      </>
+                    )
+                  }
+                }
+              )()}
+
+
+
             </div>
             <div>
               <a className="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i className="fab fa-facebook-f fa-sm fa-fw me-2" /></a>
               <a className="text-light" href="https://www.instagram.com/" target="_blank"><i className="fab fa-instagram fa-sm fa-fw me-2" /></a>
-              <a className="text-light" href="https://twitter.com/" target="_blank"><i className="fab fa-twitter fa-sm fa-fw me-2" /></a>
-              <a className="text-light" href="https://www.linkedin.com/" target="_blank"><i className="fab fa-linkedin fa-sm fa-fw" /></a>
+              <a className="text-light" href="https://twitter.com/" target="_blank"><i className="me-2 fab fa-twitter fa-sm fa-fw me-2" /></a>
+
+
+              {(
+                () => {
+                  if (localStorage.getItem('uid')) {
+                    return (
+                      <Link className="text-light" href="" target="_blank"><i className="fa fa-user me-2" />My Account</Link>
+                    )
+                  }
+                }
+              )()}
             </div>
           </div>
         </div>
@@ -48,7 +86,27 @@ function Header() {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/contact">Contact</NavLink>
                 </li>
-               
+
+                {(
+                  () => {
+                    if (localStorage.getItem('uid')) {
+                      return (
+                        <li className="nav-item">
+                          <a className="nav-link" href="#" onClick={userlogout}>Logout</a>
+                        </li>
+                      )
+                    }
+                    else {
+                      return (
+                        <li className="nav-item">
+                          <NavLink className="nav-link" to="/signup">Signup</NavLink>
+                        </li>
+                      )
+                    }
+                  }
+                )()}
+
+
               </ul>
             </div>
             <div className="navbar align-self-center d-flex">

@@ -18,6 +18,8 @@ import Manage_order from "./admin/pages/Manage_order";
 import View_cart from "./admin/pages/View_cart";
 import Manage_customer from "./admin/pages/Manage_customer";
 import Manage_contact from "./admin/pages/Manage_contact";
+import Signup from "./website/pages/Signup";
+import Login from "./website/pages/Login";
 
 function App() {
   return (
@@ -30,7 +32,8 @@ function App() {
            <Route path='/contact' element={<Contact/>}></Route>
            <Route path='/shop' element={<Shop/>}></Route>
            <Route path='/single_shop' element={<Single_shop />}></Route>
-
+           <Route path='/signup' element={<Signup/>}></Route>
+           <Route path='/login' element={<Login/>}></Route>
           
            <Route path='/admin-login' element={<Admin_login/>}></Route>
            <Route path='/dashboard' element={<Dashboard/>}></Route>

@@ -32,6 +32,7 @@ const fetch=async()=>{
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Profile</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Pasword</th>
@@ -45,6 +46,7 @@ const fetch=async()=>{
                                     return(
                                           <tr>
                                             <td>{value.id}</td>
+                                            <td><img src={value.image} width="50px" alt="" /></td>
                                             <td>{value.name}</td>
                                             <td>{value.email}</td>
                                             <td>{value.password}</td>
