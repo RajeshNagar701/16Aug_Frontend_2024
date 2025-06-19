@@ -6,7 +6,7 @@ import axios from 'axios';
 function Manage_customer() {
     useEffect(()=>{
     fetch();
-},[]);
+});
 
 const [mydata,setData]=useState([]);
 const fetch=async()=>{
@@ -14,7 +14,10 @@ const fetch=async()=>{
     console.log(user.data);
     setData(user.data);
 }
-
+const deleteHandel=(id)=>{
+    const res=axios.delete(`http://localhost:3000/user/${id}`);
+    fetch();
+}
   return (
      <div>
             <Header />
@@ -53,15 +56,13 @@ const fetch=async()=>{
                                             <td>{value.mobile}</td>
                                             <td className='text-center'>
                                             <button className='btn btn-primary m-1'>Edit</button> 
-                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                            <button className='btn btn-danger m-1' onClick={()=>deleteHandel(value.id)}>Delete</button> 
                                              <button className='btn btn-danger m-1'>{value.status}</button> 
                                             </td>
                                         </tr>   
                                     )
                                 })
                             }
-                           
-                           
                         </tbody>
                     </table>
 

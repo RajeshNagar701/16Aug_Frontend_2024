@@ -8,7 +8,7 @@ function Manage_categories() {
     
 useEffect(()=>{
     fetch();
-},[]);
+});
 
 const [mydata,setData]=useState([]);
 
@@ -16,6 +16,11 @@ const fetch=async()=>{
     const categories=await axios.get(`http://localhost:3000/categories`);
     console.log(categories.data);
     setData(categories.data);
+}
+
+const deleteHandel=(id)=>{
+    const res=axios.delete(`http://localhost:3000/categories/${id}`);
+    fetch();
 }
 
     return (
@@ -47,10 +52,10 @@ const fetch=async()=>{
                                           <tr>
                                             <td>{value.id}</td>
                                             <td>{value.name}</td>
-                                            <td>{value.image}</td>
+                                            <td><img src={value.image} width="50px" alt="" /></td>
                                             <td className='text-center'>
                                             <button className='btn btn-primary m-1'>Edit</button> 
-                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                            <button className='btn btn-danger m-1' onClick={()=>deleteHandel(value.id)}>Delete</button> 
                                             </td>
                                         </tr>   
                                     )

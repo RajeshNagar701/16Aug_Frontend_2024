@@ -7,7 +7,7 @@ function Manage_contact() {
 
 useEffect(()=>{
     fetch();
-},[]);
+});
 
 const [mydata,setData]=useState([]);
 
@@ -15,6 +15,11 @@ const fetch=async()=>{
     const contact=await axios.get(`http://localhost:3000/contact`);
     console.log(contact.data);
     setData(contact.data);
+}
+
+const deleteHandel=(id)=>{
+    const res=axios.delete(`http://localhost:3000/contact/${id}`);
+    fetch();
 }
 
   return (
@@ -53,7 +58,7 @@ const fetch=async()=>{
                                             <td>{value.msg}</td>
                                             <td className='text-center'>
                                             <button className='btn btn-primary m-1'>Edit</button> 
-                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                            <button className='btn btn-danger m-1' onClick={()=>deleteHandel(value.id)}>Delete</button> 
                                             </td>
                                         </tr>   
                                     )

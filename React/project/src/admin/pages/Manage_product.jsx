@@ -13,6 +13,11 @@ const fetch=async()=>{
     console.log(product.data);
     setData(product.data);
 }
+
+const deleteHandel=(id)=>{
+    const res=axios.delete(`http://localhost:3000/products/${id}`);
+    fetch();
+}
   return (
      <div>
             <Header />
@@ -30,6 +35,7 @@ const fetch=async()=>{
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Categories ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Price</th>
@@ -43,13 +49,14 @@ const fetch=async()=>{
                                     return(
                                           <tr>
                                             <td>{value.id}</td>
+                                            <td>{value.cate_id}</td>
                                             <td>{value.name}</td>
-                                            <td>{value.image}</td>
+                                            <td><img src={value.image} width="50px" alt="" /></td>
                                             <td>{value.price}</td>
                                             <td>{value.description}</td>
                                             <td className='text-center'>
                                             <button className='btn btn-primary m-1'>Edit</button> 
-                                            <button className='btn btn-danger m-1'>Delete</button> 
+                                            <button className='btn btn-danger m-1' onClick={()=>deleteHandel(value.id)}>Delete</button> 
                                             </td>
                                         </tr>   
                                     )
