@@ -52,7 +52,7 @@ function Header() {
                 () => {
                   if (localStorage.getItem('uid')) {
                     return (
-                      <Link className="text-light" href="" target="_blank"><i className="fa fa-user me-2" />My Account</Link>
+                      <Link className="text-light" to="/user_profile" ><i className="fa fa-user me-2" />My Account</Link>
                     )
                   }
                 }
@@ -65,9 +65,9 @@ function Header() {
       {/* Header */}
       <nav className="navbar navbar-expand-lg navbar-light shadow">
         <div className="container d-flex justify-content-between align-items-center">
-          <a className="navbar-brand text-success logo h1 align-self-center" href="index.html">
+          <Link className="navbar-brand text-success logo h1 align-self-center" to="/">
             Zay
-          </a>
+          </Link>
           <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>

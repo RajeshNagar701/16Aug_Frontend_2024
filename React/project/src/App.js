@@ -20,6 +20,8 @@ import Manage_customer from "./admin/pages/Manage_customer";
 import Manage_contact from "./admin/pages/Manage_contact";
 import Signup from "./website/pages/Signup";
 import Login from "./website/pages/Login";
+import User_profile from "./website/pages/User_profile";
+import Edit_user from "./website/pages/Edit_user";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
            <Route path='/shop' element={<Shop/>}></Route>
            <Route path='/single_shop' element={<Single_shop />}></Route>
            <Route path='/signup' element={<Signup/>}></Route>
+           <Route path='/user_profile' element={<User_profile/>}></Route>
+           <Route path='/edit_user/:id' element={<Edit_user/>}></Route>
            <Route path='/login' element={<Login/>}></Route>
           
            <Route path='/admin-login' element={<Admin_login/>}></Route>

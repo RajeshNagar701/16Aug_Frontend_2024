@@ -55,7 +55,7 @@ const deleteHandel=(id)=>{
                                             <td>{value.price}</td>
                                             <td>{value.description}</td>
                                             <td className='text-center'>
-                                            <button className='btn btn-primary m-1'>Edit</button> 
+                                            <button className='btn btn-primary m-1' >Edit</button> 
                                             <button className='btn btn-danger m-1' onClick={()=>deleteHandel(value.id)}>Delete</button> 
                                             </td>
                                         </tr>   
