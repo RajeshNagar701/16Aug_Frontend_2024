@@ -3,6 +3,9 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import swal from 'sweetalert';
+
+
 function Add_product() {
 
   useEffect(() => {
@@ -40,6 +43,12 @@ function Add_product() {
     const res = await axios.post(`http://localhost:3000/products`, data);
     console.log('ult',res);
     setData({ ...data,cate_id:"", name: "", price: "",image: "", description: ""});
+    swal({
+      title: "Success!",
+      text: "Product Added Successfull!",
+      icon: "success",
+      button: "Done",
+    });
   }
 
 

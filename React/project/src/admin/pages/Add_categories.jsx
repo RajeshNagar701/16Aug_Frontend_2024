@@ -3,40 +3,45 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-
+import swal from 'sweetalert';
 function Add_categories() {
-  const redirect=useNavigate();
+  const redirect = useNavigate();
 
-  const [data,setData]=useState({
-    id:"",
-    name:"",
-    image:""
+  const [data, setData] = useState({
+    id: "",
+    name: "",
+    image: ""
   });
-  
-  const changHandel=(e)=>{
-    setData({...data,id:new Date().getTime().toString(),[e.target.name]:e.target.value});
+
+  const changHandel = (e) => {
+    setData({ ...data, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
     console.log(data);
   }
 
 
-  const submitHandel=async(e)=>{
+  const submitHandel = async (e) => {
     e.preventDefault();
-    const res=await axios.post(`http://localhost:3000/categories`,data);
+    const res = await axios.post(`http://localhost:3000/categories`, data);
     //console.log(res);
-    setData({...data,name:"",image:""});
-
+    setData({ ...data, name: "", image: "" });
+    swal({
+      title: "Success!",
+      text: "Categories Added Successfull!",
+      icon: "success",
+      button: "Done",
+    });
   }
 
   return (
     <div>
-      <Header/>
+      <Header />
       {/* Start Content Page */}
       <div className="container-fluid bg-light py-5">
         <div className="col-md-6 m-auto text-center">
           <h1 className="h1">Add Categories</h1>
         </div>
       </div>
-     
+
       {/* Start Contact */}
       <div className="container py-5">
         <div className="row py-5">
@@ -48,10 +53,10 @@ function Add_categories() {
               </div>
               <div className="form-group offset-md-2  col-md-8 mb-3">
                 <label htmlFor="inputname">Name</label>
-                <input type="url"  onChange={changHandel} value={data.image}  className="form-control mt-1" id="name" name="image" placeholder="Categories URL" />
+                <input type="url" onChange={changHandel} value={data.image} className="form-control mt-1" id="name" name="image" placeholder="Categories URL" />
               </div>
             </div>
-           
+
             <div className="row">
               <div className="col text-end mt-2">
                 <button type="submit" className="btn btn-success btn-lg px-3">Add</button>
@@ -61,7 +66,7 @@ function Add_categories() {
         </div>
       </div>
       {/* End Contact */}
-      <Footer/>
+      <Footer />
     </div>
   )
 }

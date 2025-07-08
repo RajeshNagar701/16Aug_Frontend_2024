@@ -22,21 +22,28 @@ import Signup from "./website/pages/Signup";
 import Login from "./website/pages/Login";
 import User_profile from "./website/pages/User_profile";
 import Edit_user from "./website/pages/Edit_user";
+import Shop_cate from "./website/pages/Shop_cate";
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-      
+        <ToastContainer/>
          <Routes>
            <Route path='/' element={<Index/>}></Route>
            <Route path='/about' element={<About/>}></Route>
            <Route path='/contact' element={<Contact/>}></Route>
            <Route path='/shop' element={<Shop/>}></Route>
-           <Route path='/single_shop' element={<Single_shop />}></Route>
+           <Route path='/single_shop/:id' element={<Single_shop />}></Route>
+           <Route path='/shop_cate/:cate_id' element={<Shop_cate />}></Route>
            <Route path='/signup' element={<Signup/>}></Route>
            <Route path='/user_profile' element={<User_profile/>}></Route>
            <Route path='/edit_user/:id' element={<Edit_user/>}></Route>
+           
            <Route path='/login' element={<Login/>}></Route>
           
            <Route path='/admin-login' element={<Admin_login/>}></Route>

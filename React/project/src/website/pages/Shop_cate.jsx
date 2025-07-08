@@ -4,7 +4,7 @@ import Footer from '../component/Footer'
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-function Shop() {
+function Shop_cate() {
 
 
     var redirect=useNavigate();
@@ -21,11 +21,12 @@ function Shop() {
         setCate(categories.data);
     }
 
+    var {cate_id}=useParams();
     const [myprod, setProd] = useState([]);
     const fetch1 = async () => {
-        const products = await axios.get(`http://localhost:3000/products`);
-        console.log(products.data);
-        setProd(products.data);
+        const cate_products = await axios.get(`http://localhost:3000/products?cate_id=${cate_id}`);
+        console.log(cate_products.data);
+        setProd(cate_products.data);
     }
 
     return (
@@ -37,7 +38,7 @@ function Shop() {
                         <h1 className="h2 pb-4">Categories</h1>
                         <ul className="list-unstyled templatemo-accordion">
                             <li className="pb-3">
-                                 <Link className="collapsed d-flex justify-content-between h3 text-decoration-none" to="/shop">
+                                <Link className="collapsed d-flex justify-content-between h3 text-decoration-none" to="/shop">
                                     All Gender
                                     <i className="fa fa-fw fa-chevron-circle-down mt-1" />
                                 </Link>
@@ -45,7 +46,7 @@ function Shop() {
                                     {
                                         mycate.map((value, index, arr) => {
                                             return (
-                                                <li><a className="text-decoration-none" onClick={() => redirect(`/shop_cate/${value.id}`)}  href={void(0)}>{value.name}</a></li>
+                                                <li><a className="text-decoration-none"  onClick={() => redirect(`/shop_cate/${value.id}`)}  href={void(0)}>{value.name}</a></li>
                                             )
                                         })
                                     }
@@ -85,7 +86,7 @@ function Shop() {
                                                             <i className="text-muted fa fa-star" />
                                                         </li>
                                                     </ul>
-                                                    <p className="text-center mb-0">${value.price}.00</p>
+                                                    <p className="text-center mb-0">₹{value.price}.00</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,4 +216,4 @@ function Shop() {
     )
 }
 
-export default Shop
+export default Shop_cate

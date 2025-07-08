@@ -3,6 +3,8 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import swal from 'sweetalert';
+import { toast } from 'react-toastify'
 
 function Login() {
 
@@ -18,32 +20,68 @@ function Login() {
   }
 
 
+  const validate = () => {
+    var result=true;
+    if (data.email == "") {
+      toast.error('Email Field is required !')
+      result=false;
+    }
+     if (data.password == "") {
+      toast.error('Password Field is required !')
+      result=false;
+    }
+    return result;
+  }
+
   const submitHandel = async (e) => {
     e.preventDefault();
-    const res = await axios.get(`http://localhost:3000/user?email=${data.email}`);
-    console.log(res);
-    if (res.data.length > 0) {
-      if (res.data[0].password == data.password) {
-        if (res.data[0].status == "Unblock") {
-          
-          localStorage.setItem('uid',res.data[0].id);
-          localStorage.setItem('uname',res.data[0].name);
-          localStorage.setItem('uemail',res.data[0].email);
-          return redirect('/');
+    if (validate()) {
+      const res = await axios.get(`http://localhost:3000/user?email=${data.email}`);
+      console.log(res);
+      if (res.data.length > 0) {
+        if (res.data[0].password == data.password) {
+          if (res.data[0].status == "Unblock") {
+
+            localStorage.setItem('uid', res.data[0].id);
+            localStorage.setItem('uname', res.data[0].name);
+            localStorage.setItem('uemail', res.data[0].email);
+            swal({
+              title: "Success!",
+              text: "Login Successfull!",
+              icon: "success",
+              button: "Done",
+            });
+            return redirect('/');
+          }
+          else {
+            swal({
+              title: "Error!",
+              text: "Registration Failed due to Account Blocked!",
+              icon: "warning",
+              button: "Wrong",
+            });
+            return false;
+          }
         }
         else {
-          alert('Blocked Account !')
+          swal({
+            title: "Error!",
+            text: "Registration Failed due to wrong Password!",
+            icon: "error",
+            button: "Wrong",
+          });
           return false;
         }
       }
       else {
-        alert('Wong Password !')
+        swal({
+          title: "Error!",
+          text: "Registration Failed due to wrong email!",
+          icon: "error",
+          button: "Wrong",
+        });
         return false;
       }
-    }
-    else {
-      alert('Email does not Exist !')
-      return false;
     }
   }
 

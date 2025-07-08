@@ -1,25 +1,32 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios';
+import swal from 'sweetalert';
 
 function Manage_customer() {
-    useEffect(()=>{
-    fetch();
-});
+    useEffect(() => {
+        fetch();
+    });
 
-const [mydata,setData]=useState([]);
-const fetch=async()=>{
-    const user=await axios.get(`http://localhost:3000/user`);
-    console.log(user.data);
-    setData(user.data);
-}
-const deleteHandel=(id)=>{
-    const res=axios.delete(`http://localhost:3000/user/${id}`);
-    fetch();
-}
-  return (
-     <div>
+    const [mydata, setData] = useState([]);
+    const fetch = async () => {
+        const user = await axios.get(`http://localhost:3000/user`);
+        console.log(user.data);
+        setData(user.data);
+    }
+    const deleteHandel = (id) => {
+        const res = axios.delete(`http://localhost:3000/user/${id}`);
+        fetch();
+        swal({
+            title: "Success!",
+            text: "Customer Delete Successfull!",
+            icon: "success",
+            button: "Done",
+        });
+    }
+    return (
+        <div>
             <Header />
             {/* Start Content Page */}
             <div className="container-fluid bg-light py-5">
@@ -44,10 +51,10 @@ const deleteHandel=(id)=>{
                             </tr>
                         </thead>
                         <tbody>
-                           {
-                                mydata.map((value,index,arr)=>{
-                                    return(
-                                          <tr>
+                            {
+                                mydata.map((value, index, arr) => {
+                                    return (
+                                        <tr>
                                             <td>{value.id}</td>
                                             <td><img src={value.image} width="50px" alt="" /></td>
                                             <td>{value.name}</td>
@@ -55,11 +62,11 @@ const deleteHandel=(id)=>{
                                             <td>{value.password}</td>
                                             <td>{value.mobile}</td>
                                             <td className='text-center'>
-                                            <button className='btn btn-primary m-1'>Edit</button> 
-                                            <button className='btn btn-danger m-1' onClick={()=>deleteHandel(value.id)}>Delete</button> 
-                                             <button className='btn btn-danger m-1'>{value.status}</button> 
+                                                <button className='btn btn-primary m-1'>Edit</button>
+                                                <button className='btn btn-danger m-1' onClick={() => deleteHandel(value.id)}>Delete</button>
+                                                <button className='btn btn-danger m-1'>{value.status}</button>
                                             </td>
-                                        </tr>   
+                                        </tr>
                                     )
                                 })
                             }
@@ -71,7 +78,7 @@ const deleteHandel=(id)=>{
             {/* End Contact */}
             <Footer />
         </div>
-  )
+    )
 }
 
 export default Manage_customer

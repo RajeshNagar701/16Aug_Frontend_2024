@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios';
-
+import swal from 'sweetalert';
 
 function Manage_categories() {
     
@@ -21,6 +21,12 @@ const fetch=async()=>{
 const deleteHandel=(id)=>{
     const res=axios.delete(`http://localhost:3000/categories/${id}`);
     fetch();
+    swal({
+            title: "Success!",
+            text: "Categories Delete Successfull!",
+            icon: "success",
+            button: "Done",
+        });
 }
 
     return (
