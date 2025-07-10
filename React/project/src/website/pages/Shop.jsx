@@ -85,7 +85,7 @@ function Shop() {
                                                             <i className="text-muted fa fa-star" />
                                                         </li>
                                                     </ul>
-                                                    <p className="text-center mb-0">${value.price}.00</p>
+                                                    <p className="text-center mb-0">₹{value.price}.00</p>
                                                 </div>
                                             </div>
                                         </div>

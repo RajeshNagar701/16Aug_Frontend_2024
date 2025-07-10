@@ -3,6 +3,7 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios';
 import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 
 function Manage_customer() {
     useEffect(() => {
@@ -15,8 +16,10 @@ function Manage_customer() {
         console.log(user.data);
         setData(user.data);
     }
-    const deleteHandel = (id) => {
-        const res = axios.delete(`http://localhost:3000/user/${id}`);
+    
+
+    const deleteHandel = async (id) => {
+        const res = await axios.delete(`http://localhost:3000/user/${id}`);
         fetch();
         swal({
             title: "Success!",
@@ -25,6 +28,22 @@ function Manage_customer() {
             button: "Done",
         });
     }
+    const statusHandel = async (id) => {
+        const res = await axios.get(`http://localhost:3000/user/${id}`);
+        //console.log(res.data);
+        if (res.data.status == "Block") {
+            var updres = await axios.patch(`http://localhost:3000/user/${id}`, { status: "Unblock" });
+            toast.success('User Unblock status Updated');
+            fetch();
+        }
+        else {
+            var updres = await axios.patch(`http://localhost:3000/user/${id}`, { status: "Block" });
+            toast.success('User Block status Updated');
+            fetch();
+        }
+    }
+
+
     return (
         <div>
             <Header />
@@ -62,9 +81,11 @@ function Manage_customer() {
                                             <td>{value.password}</td>
                                             <td>{value.mobile}</td>
                                             <td className='text-center'>
+                                               
+                                                
                                                 <button className='btn btn-primary m-1'>Edit</button>
                                                 <button className='btn btn-danger m-1' onClick={() => deleteHandel(value.id)}>Delete</button>
-                                                <button className='btn btn-danger m-1'>{value.status}</button>
+                                                <button className='btn btn-danger m-1' onClick={() => statusHandel(value.id)}>{value.status}</button>
                                             </td>
                                         </tr>
                                     )
